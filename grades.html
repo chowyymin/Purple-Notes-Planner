@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Tracker | PurpleNotes</title>
+    <link rel="stylesheet" href="grades.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+        <nav>
+            <a href="dashboard.html">⌂ Dashboard</a>
+            <a href="tasks.html">✓ My Tasks</a>
+            <a href="assignment.html">▣ Assignments</a>
+            <a href="deadlines.html">◷ Deadlines</a>
+            <a href="exams.html">✎ Exam Planner</a>
+            <a href="weekly.html">▦ Weekly Schedule</a>
+            <a href="grades.html" class="active">♡ Grade Tracker</a>
+        </nav>
+        <div class="sidebar-note">
+            <span>🌷</span>
+            <p>Every small improvement is progress. Keep going!</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="page-heading">
+            <div>
+                <span class="eyebrow">TRACK YOUR PROGRESS</span>
+                <h1>My Grade Tracker ♡</h1>
+                <p>Keep your grades organized and celebrate every improvement.</p>
+            </div>
+            <div class="school-year">
+                <span>ACADEMIC YEAR</span>
+                <strong>2026–2027</strong>
+            </div>
+        </header>
+
+        <section class="hero-card">
+            <div>
+                <span class="eyebrow">YOUR JOURNEY MATTERS</span>
+                <h2>Small steps lead to big achievements.</h2>
+                <p>Record your grades, review your progress, and keep aiming higher.</p>
+            </div>
+            <div class="hero-flower">🌸</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon">♡</div>
+                <div>
+                    <p>Overall Average</p>
+                    <h2 id="overallAverage">—</h2>
+                    <small>Based on entered weights</small>
+                </div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon pink">▤</div>
+                <div>
+                    <p>Subjects Recorded</p>
+                    <h2 id="subjectCount">0</h2>
+                    <small>Unique subjects</small>
+                </div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon green">✧</div>
+                <div>
+                    <p>Grade Entries</p>
+                    <h2 id="entryCount">0</h2>
+                    <small>Assessments recorded</small>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <span class="eyebrow">ADD A NEW RECORD</span>
+                <h2 id="formTitle">＋ Add a Grade</h2>
+                <p>Enter a score as a percentage from 0 to 100.</p>
+            </div>
+
+            <form id="gradeForm">
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="subject">Subject</label>
+                        <input id="subject" maxlength="80"
+                               placeholder="e.g. Platform Technologies" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="assessment">Assessment</label>
+                        <input id="assessment" maxlength="80"
+                               placeholder="e.g. Prelim Exam" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="grade">Grade (%)</label>
+                        <input id="grade" type="number" min="0" max="100"
+                               step="0.01" placeholder="e.g. 85" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="weight">Weight (%)</label>
+                        <input id="weight" type="number" min="0.01" max="100"
+                               step="0.01" value="100" required>
+                        <small>How much this assessment contributes to your average.</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="term">Term</label>
+                        <select id="term">
+                            <option>Prelim</option>
+                            <option>Midterm</option>
+                            <option>Finals</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="gradeDate">Date</label>
+                        <input id="gradeDate" type="date">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="primary-button" id="saveButton" type="submit">
+                        ＋ Save Grade
+                    </button>
+                    <button class="secondary-button" id="cancelEdit" type="button" hidden>
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <span class="eyebrow">YOUR ACADEMIC RECORD</span>
+                <h2>Grade Overview</h2>
+                <p>Your average is calculated using the weights of the entries you record.</p>
+            </div>
+
+            <div class="filter-row">
+                <label for="subjectFilter">Filter by subject</label>
+                <select id="subjectFilter">
+                    <option value="all">All subjects</option>
+                </select>
+                <label for="termFilter">Term</label>
+                <select id="termFilter">
+                    <option value="all">All terms</option>
+                    <option>Prelim</option>
+                    <option>Midterm</option>
+                    <option>Finals</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div id="gradeList" class="grade-list"></div>
+        </section>
+
+        <div class="note">
+            <strong>♡ Remember:</strong> This is a personal tracker, not an official school grade calculator.
+            Your school's grading system may use different formulas and passing marks.
+        </div>
+
+        <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+        <footer>Made with ♡ for your learning journey · PurpleNotes</footer>
+    </main>
+
+    <script src="grades.js"></script>
+</body>
+</html>

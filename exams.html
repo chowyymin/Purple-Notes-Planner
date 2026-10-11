@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Planner | PurpleNotes</title>
+    <link rel="stylesheet" href="exams.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="dashboard.html" class="brand">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+
+        <nav>
+            <a href="dashboard.html">⌂ Dashboard</a>
+            <a href="tasks.html">✓ My Tasks</a>
+            <a href="assignment.html">▣ Assignments</a>
+            <a href="deadlines.html">♧ Deadlines</a>
+            <a href="exams.html" class="active">✎ Exam Planner</a>
+            <a href="dashboard.html#quick-links">▦ Weekly Schedule</a>
+        </nav>
+
+        <div class="sidebar-note">
+            <span>🌷</span>
+            <p>Prepare with purpose. Believe in your progress.</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="page-heading">
+            <div>
+                <span class="eyebrow">PLAN • PREPARE • SUCCEED</span>
+                <h1>Exam Planner <span>✧</span></h1>
+                <p>Keep your exams organized and prepare one subject at a time.</p>
+            </div>
+            <div class="date-card">
+                <span>TODAY IS</span>
+                <strong id="todayDate">Today</strong>
+            </div>
+        </header>
+
+        <section class="hero-card">
+            <div>
+                <span class="hero-label">YOUR REMINDER</span>
+                <h2>Every study session brings you closer.</h2>
+                <p>Make a plan, review a little each day, and trust your effort.</p>
+            </div>
+            <div class="hero-flower">🌸</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon purple-icon">▤</div>
+                <div>
+                    <p>Upcoming Exams</p>
+                    <h3 id="upcomingCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon pink-icon">◷</div>
+                <div>
+                    <p>Within 7 Days</p>
+                    <h3 id="weekCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon green-icon">♡</div>
+                <div>
+                    <p>Ready to Take</p>
+                    <h3 id="readyCount">0</h3>
+                </div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <span class="eyebrow">MAKE YOUR STUDY PLAN</span>
+                <h2>＋ Add an Exam</h2>
+                <p>Enter your exam details and the topics you need to review.</p>
+            </div>
+
+            <form id="examForm">
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="examName">Exam Name</label>
+                        <input
+                            id="examName"
+                            type="text"
+                            placeholder="e.g. Midterm Examination"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subject">Subject</label>
+                        <input
+                            id="subject"
+                            type="text"
+                            placeholder="e.g. Platform Technologies"
+                            maxlength="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="examDate">Exam Date</label>
+                        <input id="examDate" type="date" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="examType">Exam Type</label>
+                        <select id="examType">
+                            <option>Quiz</option>
+                            <option>Prelim</option>
+                            <option>Midterm</option>
+                            <option>Finals</option>
+                            <option>Practical Exam</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="examStatus">Preparation Status</label>
+                        <select id="examStatus">
+                            <option value="Not Started">Not Started</option>
+                            <option value="Studying">Studying</option>
+                            <option value="Ready">Ready</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="examTime">Exam Time (optional)</label>
+                        <input id="examTime" type="time">
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="examTopics">Topics to Review</label>
+                        <textarea
+                            id="examTopics"
+                            rows="3"
+                            maxlength="1500"
+                            placeholder="e.g. Process Scheduling, Deadlocks, Concurrency"
+                        ></textarea>
+                        <span class="hint">Separate topics with commas or new lines.</span>
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="examNotes">Notes (optional)</label>
+                        <textarea
+                            id="examNotes"
+                            rows="2"
+                            maxlength="1000"
+                            placeholder="Study reminders, materials to bring, or other notes..."
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="primary-button" id="saveButton">
+                        + Save Exam
+                    </button>
+                    <button type="button" class="secondary-button" id="cancelEdit" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="exam-section">
+            <div class="list-heading">
+                <div>
+                    <span class="eyebrow">STAY ONE STEP AHEAD</span>
+                    <h2>Your Exam Schedule</h2>
+                </div>
+
+                <select id="examFilter" aria-label="Filter exams">
+                    <option value="All">All Exams</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Not Started">Not Started</option>
+                    <option value="Studying">Studying</option>
+                    <option value="Ready">Ready</option>
+                    <option value="Past">Past Exams</option>
+                </select>
+            </div>
+
+            <div id="examList" class="exam-list"></div>
+        </section>
+
+        <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+
+        <footer>Made with ♡ for your learning journey · PurpleNotes</footer>
+    </main>
+
+    <script src="exams.js"></script>
+</body>
+</html>

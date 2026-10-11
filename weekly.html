@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule | PurpleNotes</title>
+    <link rel="stylesheet" href="weekly.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+        <nav>
+            <a href="dashboard.html">⌂ Dashboard</a>
+            <a href="tasks.html">✓ My Tasks</a>
+            <a href="assignment.html">▣ Assignments</a>
+            <a href="deadlines.html">◷ Deadlines</a>
+            <a href="exams.html">✎ Exam Planner</a>
+            <a href="weekly.html" class="active">▦ Weekly Schedule</a>
+        </nav>
+        <div class="sidebar-note">
+            <span>🌷</span>
+            <p>Good plans make great days. You're doing amazing!</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="page-heading">
+            <div>
+                <span class="eyebrow">ORGANIZE · FOCUS · ACHIEVE</span>
+                <h1>Weekly Schedule ♡</h1>
+                <p>Plan your classes, study sessions, and personal time.</p>
+            </div>
+            <div class="week-picker">
+                <button id="previousWeek" type="button" aria-label="Previous week">‹</button>
+                <div>
+                    <span>YOUR WEEK</span>
+                    <strong id="weekLabel">This week</strong>
+                </div>
+                <button id="nextWeek" type="button" aria-label="Next week">›</button>
+            </div>
+        </header>
+
+        <section class="hero-card">
+            <div>
+                <span class="eyebrow">A LITTLE REMINDER</span>
+                <h2>Progress happens when you show up.</h2>
+                <p>One step at a time. Make room for learning and rest.</p>
+            </div>
+            <span class="hero-flower">🌸</span>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span class="stat-icon">▣</span>
+                <div><p>Scheduled Events</p><h2 id="eventCount">0</h2></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon pink">✿</span>
+                <div><p>Study Sessions</p><h2 id="studyCount">0</h2></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon green">◷</span>
+                <div><p>Planned Hours</p><h2 id="hourCount">0</h2></div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <span class="eyebrow">MAKE YOUR PLAN</span>
+                <h2 id="formTitle">＋ Add an Event</h2>
+                <p>Add classes, study sessions, breaks, and personal activities.</p>
+            </div>
+
+            <form id="eventForm">
+                <input type="hidden" id="editId">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="eventTitle">Event Name</label>
+                        <input id="eventTitle" maxlength="100" placeholder="e.g. Platform Technologies" required>
+                    </div>
+                    <div class="field">
+                        <label for="eventType">Category</label>
+                        <select id="eventType">
+                            <option>Class</option>
+                            <option>Study Session</option>
+                            <option>Assignment Work</option>
+                            <option>Exam Review</option>
+                            <option>Personal Time</option>
+                            <option>Break</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="eventDay">Day</label>
+                        <select id="eventDay" required>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                            <option value="0">Sunday</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="eventDate">Specific Date (optional)</label>
+                        <input id="eventDate" type="date">
+                        <small>Leave blank to repeat every week on the selected day.</small>
+                    </div>
+                    <div class="field">
+                        <label for="startTime">Start Time</label>
+                        <input id="startTime" type="time" value="08:00" required>
+                    </div>
+                    <div class="field">
+                        <label for="endTime">End Time</label>
+                        <input id="endTime" type="time" value="09:00" required>
+                    </div>
+                    <div class="field full-width">
+                        <label for="eventNotes">Notes (optional)</label>
+                        <textarea id="eventNotes" rows="2" maxlength="500" placeholder="Room number, topics, reminders..."></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="primary-button" id="saveButton" type="submit">＋ Save Event</button>
+                    <button class="secondary-button" id="cancelEdit" type="button" hidden>Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="schedule-section">
+            <div class="list-heading">
+                <div>
+                    <span class="eyebrow">YOUR TIME, YOUR WAY</span>
+                    <h2>My Week</h2>
+                </div>
+                <button id="thisWeek" class="secondary-button" type="button">Today / This Week</button>
+            </div>
+            <div id="scheduleGrid" class="schedule-grid"></div>
+        </section>
+
+        <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+        <footer>Made with ♡ for your learning journey · PurpleNotes</footer>
+    </main>
+
+    <script src="weekly.js"></script>
+</body>
+</html>

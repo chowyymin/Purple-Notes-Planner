@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | 2026–2027</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <a class="brand" href="planner.html">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+
+        <nav>
+            <a class="nav-link active" href="dashboard.html">⌂ Dashboard</a>
+            <a class="nav-link" href="tasks.html">✓ Today's Tasks</a>
+            <a class="nav-link" href="assignment.html">▣ Assignments</a>
+            <a class="nav-link" href="exams.html">✎ Exam Planner</a>
+            <a class="nav-link" href="weekly.html">▦ Weekly Schedule</a>
+            <a class="nav-link" href="grades.html">♡ Grade Tracker</a>
+            <a class="nav-link" href="notes.html">☰ Notes</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span>✦</span>
+            <p>Small steps lead to big dreams.</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">STUDENT PLANNER · 2026–2027</p>
+                <h1>My Dashboard <span>✿</span></h1>
+                <p class="subtitle">A little progress every day adds up.</p>
+            </div>
+            <div class="date-card">
+                <span>✧ TODAY</span>
+                <strong id="todayDate">Loading...</strong>
+            </div>
+        </header>
+
+        <section class="welcome-card">
+            <div>
+                <p class="eyebrow">YOUR SPACE TO GROW</p>
+                <h2>You've got this! ♡</h2>
+                <p>Stay organized, focus on your goals, and take things one step at a time.</p>
+            </div>
+            <div class="welcome-flower">✿</div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span class="stat-icon">☑</span>
+                <p>Tasks completed</p>
+                <h2 id="completedCount">0 / 0</h2>
+                <div class="progress-track">
+                    <div id="progressBar"></div>
+                </div>
+                <small id="progressText">Let's get started!</small>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">▣</span>
+                <p>Upcoming deadlines</p>
+                <h2 id="deadlineCount">0</h2>
+                <small>Assignments and exams</small>
+            </article>
+
+            <article class="stat-card">
+                <span class="stat-icon">♡</span>
+                <p>Daily reminder</p>
+                <h2 class="reminder-title">You've got this!</h2>
+                <small>One task at a time.</small>
+            </article>
+        </section>
+
+        <div class="content-grid">
+
+            <section class="panel" id="tasks">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR DAILY PLAN</p>
+                        <h2>Today's Tasks</h2>
+                    </div>
+                    <span class="pill" id="taskBadge">0 tasks</span>
+                </div>
+
+                <form id="taskForm" class="add-form">
+                    <input id="taskInput" type="text"
+                           placeholder="Add a task..." required>
+                    <button type="submit">+ Add</button>
+                </form>
+
+                <div id="taskList" class="task-list"></div>
+                <p class="helper-text">Check a task when you've finished it.</p>
+            </section>
+
+            <section class="panel" id="deadlines">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">DON'T FORGET</p>
+                        <h2>Upcoming Deadlines</h2>
+                    </div>
+                    <span class="calendar-icon">▦</span>
+                </div>
+
+                <form id="deadlineForm" class="deadline-form">
+                    <input id="deadlineTitle" type="text"
+                           placeholder="Assignment or exam" required>
+                    <input id="deadlineDate" type="date" required>
+                    <button type="submit">Add deadline</button>
+                </form>
+
+                <div id="deadlineList" class="deadline-list"></div>
+                <p class="helper-text">Your nearest deadlines appear first.</p>
+            </section>
+
+        </div>
+
+        <section class="panel quick-panel" id="quick-links">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">KEEP EVERYTHING IN ONE PLACE</p>
+                    <h2>Quick Navigation</h2>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+                <a class="quick-card" href="tasks.html">
+                    <span>✓</span>
+                    <strong>My Tasks</strong>
+                    <small>Track your daily work</small>
+                </a>
+
+                <a class="quick-card" href="assignment.html">
+                    <span>▣</span>
+                    <strong>Assignments</strong>
+                    <small>Keep track of due dates</small>
+                </a>
+
+                <a class="quick-card" href="exams.html">
+                    <span>✎</span>
+                    <strong>Exam Planner</strong>
+                    <small>Remember exam dates</small>
+                </a>
+
+                <a class="quick-card" href="weekly.html">
+                    <span>▦</span>
+                    <strong>Weekly Schedule</strong>
+                    <small>Plan your study week</small>
+                </a>
+
+                <a class="quick-card" href="grades.html">
+                    <span>♡</span>
+                    <strong>Grade Tracker</strong>
+                    <small>Keep your goals in view</small>
+                </a>
+
+                <a class="quick-card" href="notes.html">
+                    <span>☰</span>
+                    <strong>My Notes</strong>
+                    <small>Save important reminders</small>
+                </a>
+            </div>
+        </section>
+
+        <footer>MADE WITH ♡ · ONE DAY AT A TIME</footer>
+
+    </main>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

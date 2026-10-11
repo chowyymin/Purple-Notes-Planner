@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments | PurpleNotes</title>
+    <link rel="stylesheet" href="assignment.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>PurpleNotes</h2>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assignment.html">Assignments</a>
+            <a href="deadlines.html">Deadlines</a>
+            <a href="weekly.html">Weekly Schedule</a>
+        </nav>
+    </div>
+
+    <main>
+        <h1>My Assignments 📚</h1>
+        <p>Keep track of your schoolwork and tasks.</p>
+
+        <form id="assignmentForm">
+            <input
+                type="text"
+                id="assignmentName"
+                placeholder="Assignment name"
+                required
+            >
+
+            <input
+                type="date"
+                id="assignmentDate"
+                required
+            >
+
+            <button type="submit">+ Add Assignment</button>
+        </form>
+
+        <h2>Assignment List</h2>
+        <ul id="assignmentList"></ul>
+
+        <a href="dashboard.html">← Back to Dashboard</a>
+    </main>
+
+    <script>
+        const form = document.getElementById("assignmentForm");
+        const nameInput = document.getElementById("assignmentName");
+        const dateInput = document.getElementById("assignmentDate");
+        const list = document.getElementById("assignmentList");
+
+        let assignments = JSON.parse(
+            localStorage.getItem("studyBloomAssignments") || "[]"
+        );
+
+        function displayAssignments() {
+            list.innerHTML = "";
+
+            assignments.forEach((assignment, index) => {
+                const item = document.createElement("li");
+                item.textContent =
+                    assignment.name + " — Due: " + assignment.date + " ";
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+
+                deleteButton.addEventListener("click", () => {
+                    assignments.splice(index, 1);
+                    saveAssignments();
+                });
+
+                item.appendChild(deleteButton);
+                list.appendChild(item);
+            });
+        }
+
+        function saveAssignments() {
+            localStorage.setItem(
+                "studyBloomAssignments",
+                JSON.stringify(assignments)
+            );
+            displayAssignments();
+        }
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            assignments.push({
+                name: nameInput.value.trim(),
+                date: dateInput.value
+            });
+
+            saveAssignments();
+            form.reset();
+        });
+
+        displayAssignments();
+    </script>
+
+</body>
+</html>

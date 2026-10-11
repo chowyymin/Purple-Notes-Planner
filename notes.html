@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes | PurpleNotes</title>
+    <link rel="stylesheet" href="notes.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="dashboard.html">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+
+        <nav>
+            <a href="dashboard.html">⌂ Dashboard</a>
+            <a href="tasks.html">✓ My Tasks</a>
+            <a href="assignment.html">▣ Assignments</a>
+            <a href="deadlines.html">◷ Deadlines</a>
+            <a href="exams.html">✎ Exam Planner</a>
+            <a href="weekly.html">▦ Weekly Schedule</a>
+            <a href="grades.html">♡ Grade Tracker</a>
+            <a href="notes.html" class="active">▤ Notes</a>
+        </nav>
+
+        <div class="sidebar-note">
+            <span>🌷</span>
+            <p>Better notes, brighter future.</p>
+            <p>You're doing amazing! ♡</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="page-heading">
+            <div>
+                <span class="eyebrow">ORGANIZE · FOCUS · ACHIEVE</span>
+                <h1>My Notes ♡</h1>
+                <p>Save your thoughts, organize your ideas, and make studying easier.</p>
+            </div>
+            <div class="school-year">
+                <span>ACADEMIC YEAR</span>
+                <strong>2026–2027</strong>
+            </div>
+        </header>
+
+        <section class="search-bar">
+            <input id="searchNotes" type="search"
+                   placeholder="Search notes, subjects, or keywords...">
+            <button class="primary-button" id="newNoteButton" type="button">
+                ＋ New Note
+            </button>
+        </section>
+
+        <section class="hero-card">
+            <div>
+                <span class="eyebrow">A LITTLE REMINDER</span>
+                <h2>Small notes make big dreams.</h2>
+                <p>Organize your ideas and keep going. ♡</p>
+            </div>
+            <div class="hero-flower">🌸</div>
+        </section>
+
+        <section class="panel" id="noteEditor" hidden>
+            <div class="section-heading">
+                <span class="eyebrow">YOUR PERSONAL NOTEBOOK</span>
+                <h2 id="formTitle">＋ Create a Note</h2>
+                <p>Write down the important things you want to remember.</p>
+            </div>
+
+            <form id="noteForm">
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="noteTitle">Note title</label>
+                        <input id="noteTitle" maxlength="100"
+                               placeholder="e.g. Operating Systems Reviewer" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="noteSubject">Subject or folder</label>
+                        <input id="noteSubject" maxlength="60"
+                               placeholder="e.g. Platform Technologies">
+                    </div>
+
+                    <div class="field">
+                        <label for="noteTags">Tags (optional)</label>
+                        <input id="noteTags" maxlength="100"
+                               placeholder="e.g. exam, important, reviewer">
+                    </div>
+
+                    <div class="field">
+                        <label for="noteColor">Note color</label>
+                        <select id="noteColor">
+                            <option value="lavender">Soft Lavender</option>
+                            <option value="pink">Blush Pink</option>
+                            <option value="green">Sage Green</option>
+                            <option value="yellow">Butter Yellow</option>
+                        </select>
+                    </div>
+
+                    <div class="field full-width">
+                        <label for="noteContent">Your notes</label>
+                        <textarea id="noteContent" rows="9"
+                                  placeholder="Start writing your notes here..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="primary-button" type="submit" id="saveNoteButton">
+                        ♡ Save Note
+                    </button>
+                    <button class="secondary-button" type="button" id="cancelNoteButton">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="folder-section">
+            <div class="section-heading folder-heading">
+                <div>
+                    <span class="eyebrow">KEEP EVERYTHING ORGANIZED</span>
+                    <h2>My Folders</h2>
+                </div>
+                <button class="text-button" id="allNotesButton" type="button">
+                    View all notes
+                </button>
+            </div>
+
+            <div class="folder-grid" id="folderGrid"></div>
+        </section>
+
+        <section class="notes-section">
+            <div class="section-heading">
+                <span class="eyebrow">YOUR KNOWLEDGE CORNER</span>
+                <h2 id="listHeading">All Notes</h2>
+                <p id="noteCount">0 notes saved</p>
+            </div>
+
+            <div class="filter-row">
+                <label for="folderFilter">Folder</label>
+                <select id="folderFilter">
+                    <option value="all">All folders</option>
+                </select>
+
+                <label for="sortNotes">Sort by</label>
+                <select id="sortNotes">
+                    <option value="updated">Recently updated</option>
+                    <option value="title">Title A–Z</option>
+                    <option value="oldest">Oldest first</option>
+                </select>
+            </div>
+
+            <div class="notes-grid" id="notesGrid"></div>
+        </section>
+
+        <footer>Made with ♡ for your learning journey · PurpleNotes</footer>
+    </main>
+
+    <script src="notes.js"></script>
+</body>
+</html>

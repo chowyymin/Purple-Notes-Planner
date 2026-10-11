@@ -1,0 +1,354 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ===== COLOR PALETTE ===== */
+:root {
+    --purple: #8062a8;
+    --dark-purple: #4f386d;
+    --lavender: #e9def7;
+    --light-purple: #f7f3fc;
+    --pink: #f5e7f0;
+    --white: #ffffff;
+    --text: #352b40;
+    --muted: #8b8197;
+    --border: #eee5f5;
+    --green: #dcefe5;
+    --shadow: 0 12px 35px rgba(79, 56, 109, 0.08);
+}
+
+/* ===== GENERAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    background: var(--light-purple);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    padding: 38px 23px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    color: var(--dark-purple);
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 42px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 14px 16px;
+    border-radius: 13px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    transition: all 0.25s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: var(--lavender);
+    color: var(--dark-purple);
+    font-weight: 700;
+    transform: translateX(3px);
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    flex: 1;
+    min-width: 0;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 55px 50px;
+}
+
+/* Main title */
+main > h1,
+.page-heading h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-purple);
+    font-size: clamp(28px, 3vw, 38px);
+    margin-bottom: 10px;
+}
+
+main > p,
+.page-heading p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* ===== ASSIGNMENT FORM ===== */
+#assignmentForm,
+.assignment-form {
+    background: var(--white);
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    box-shadow: var(--shadow);
+    margin-bottom: 35px;
+}
+
+#assignmentForm h2,
+.assignment-form h2 {
+    color: var(--dark-purple);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+#assignmentForm input,
+#assignmentForm select,
+#assignmentForm textarea {
+    display: inline-block;
+    max-width: 100%;
+    padding: 14px 16px;
+    margin: 5px 6px 12px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fcfaff;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#assignmentForm input[type="text"] {
+    width: min(100%, 360px);
+}
+
+#assignmentForm input[type="date"] {
+    width: min(100%, 200px);
+}
+
+#assignmentForm input:focus,
+#assignmentForm select:focus,
+#assignmentForm textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 4px rgba(128, 98, 168, 0.12);
+}
+
+/* ===== BUTTONS ===== */
+button {
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#assignmentForm button,
+#assignmentForm button[type="submit"],
+.add-button {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 12px;
+    background: var(--dark-purple);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 5px 12px rgba(79, 56, 109, 0.16);
+}
+
+#assignmentForm button:hover,
+.add-button:hover {
+    background: var(--purple);
+    transform: translateY(-2px);
+}
+
+/* ===== ASSIGNMENT LIST HEADING ===== */
+main > h2,
+.list-heading h2 {
+    color: var(--dark-purple);
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+/* ===== ASSIGNMENT LIST ===== */
+#assignmentList,
+.assignment-list {
+    display: grid;
+    gap: 15px;
+    list-style: none;
+}
+
+#assignmentList > li,
+.assignment-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    box-shadow: 0 5px 18px rgba(79, 56, 109, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#assignmentList > li:hover,
+.assignment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.assignment-card .assignment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.assignment-card h3 {
+    font-size: 15px;
+    color: var(--dark-purple);
+    margin-bottom: 7px;
+}
+
+.assignment-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.assignment-check {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--purple);
+}
+
+.assignment-card.completed h3 {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+/* Delete button */
+#assignmentList button,
+.delete-button {
+    padding: 9px 13px;
+    border: none;
+    border-radius: 9px;
+    background: var(--pink);
+    color: #9d5379;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#assignmentList button:hover,
+.delete-button:hover {
+    background: #eed2e3;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--white);
+    border: 1px dashed #d7c4ea;
+    border-radius: 18px;
+    color: var(--muted);
+}
+
+.empty-state h3 {
+    color: var(--dark-purple);
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    margin: 12px 0 8px;
+}
+
+.empty-icon {
+    font-size: 36px;
+}
+
+/* ===== BACK TO DASHBOARD ===== */
+.back-link,
+main > a {
+    display: inline-block;
+    margin-top: 28px;
+    color: var(--purple);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover,
+main > a:hover {
+    color: var(--dark-purple);
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 800px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .sidebar nav a {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 30px 20px;
+    }
+
+    #assignmentForm,
+    .assignment-form {
+        padding: 22px;
+    }
+
+    #assignmentForm input[type="text"],
+    #assignmentForm input[type="date"] {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 25px 14px;
+    }
+
+    main > h1,
+    .page-heading h1 {
+        font-size: 28px;
+    }
+
+    #assignmentList > li,
+    .assignment-card {
+        padding: 15px;
+        gap: 10px;
+    }
+}

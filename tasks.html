@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks | PurpleNotes</title>
+    <link rel="stylesheet" href="tasks.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="dashboard.html" class="brand">✿ PurpleNotes</a>
+        <p class="menu-label">YOUR WORKSPACE</p>
+
+        <nav>
+            <a href="dashboard.html">⌂ Dashboard</a>
+            <a href="tasks.html" class="active">✓ My Tasks</a>
+            <a href="assignment.html">▣ Assignments</a>
+            <a href="dashboard.html#deadlines">♧ Deadlines</a>
+            <a href="dashboard.html#quick-links">▦ Weekly Schedule</a>
+        </nav>
+
+        <div class="sidebar-note">
+            <span>🌷</span>
+            <p>Small steps every day create beautiful results.</p>
+        </div>
+    </aside>
+
+    <main>
+        <header class="page-heading">
+            <div>
+                <span class="eyebrow">A LITTLE PROGRESS EVERY DAY</span>
+                <h1>My Tasks <span>♡</span></h1>
+                <p>Organize your day, focus on what matters, and celebrate your progress.</p>
+            </div>
+
+            <div class="date-card">
+                <span>YOUR DAILY PLANNER</span>
+                <strong id="todayDate">Today</strong>
+            </div>
+        </header>
+
+        <!-- DAILY QUOTE -->
+        <section class="welcome-card">
+            <span class="quote-flower">✿</span>
+            <div>
+                <p class="quote-label">A GENTLE REMINDER</p>
+                <h2>You don't have to do everything at once.</h2>
+                <p>Just start with one little thing. You've got this!</p>
+            </div>
+        </section>
+
+        <!-- PROGRESS -->
+        <section class="progress-card">
+            <div class="progress-top">
+                <div>
+                    <span class="eyebrow">YOUR DAILY PROGRESS</span>
+                    <h2>Look how far you've come!</h2>
+                    <p id="progressMessage">Every little step counts.</p>
+                </div>
+
+                <div class="progress-number">
+                    <strong id="progressPercent">0%</strong>
+                    <span>completed</span>
+                </div>
+            </div>
+
+            <div
+                class="progress-track"
+                id="progressBar"
+                role="progressbar"
+                aria-label="Task completion"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+            >
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="progress-footer">
+                <span id="completedCount">0 completed</span>
+                <span id="remainingCount">0 remaining</span>
+            </div>
+        </section>
+
+        <!-- SUMMARY -->
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon purple-icon">☷</div>
+                <div>
+                    <p>Total Tasks</p>
+                    <h3 id="totalCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon pink-icon">♡</div>
+                <div>
+                    <p>Completed</p>
+                    <h3 id="doneCount">0</h3>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-icon yellow-icon">◷</div>
+                <div>
+                    <p>Due Today</p>
+                    <h3 id="dueTodayCount">0</h3>
+                </div>
+            </article>
+        </section>
+
+        <!-- ADD TASK -->
+        <section class="panel">
+            <div class="section-heading">
+                <span class="eyebrow">MAKE IT HAPPEN</span>
+                <h2>＋ Add a New Task</h2>
+                <p>Write it down, make a plan, and take the first step.</p>
+            </div>
+
+            <form id="taskForm">
+                <div class="form-grid">
+                    <div class="form-field full-width">
+                        <label for="taskName">Task Name</label>
+                        <input
+                            type="text"
+                            id="taskName"
+                            placeholder="e.g. Review operating systems"
+                            maxlength="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="taskCategory">Category</label>
+                        <select id="taskCategory">
+                            <option value="School">📚 School</option>
+                            <option value="Personal">🌷 Personal</option>
+                            <option value="Projects">💻 Projects</option>
+                            <option value="Other">✨ Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="taskDate">Due Date</label>
+                        <input type="date" id="taskDate" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
+                            <option value="Low">Low Priority</option>
+                            <option value="Medium" selected>Medium Priority</option>
+                            <option value="High">High Priority</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="taskNotes">Notes (optional)</label>
+                        <input
+                            type="text"
+                            id="taskNotes"
+                            placeholder="Add a little reminder..."
+                            maxlength="300"
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">
+                    + Add My Task
+                </button>
+            </form>
+        </section>
+
+        <!-- TASK LIST -->
+        <section class="task-section">
+            <div class="list-heading">
+                <div>
+                    <span class="eyebrow">ONE STEP AT A TIME</span>
+                    <h2>My Daily To-Do List</h2>
+                </div>
+
+                <select id="taskFilter" aria-label="Filter tasks">
+                    <option value="All">All Tasks</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="High">High Priority</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+        </section>
+
+        <a href="dashboard.html" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+        <footer>Made with ♡ for your learning journey · PurpleNotes</footer>
+    </main>
+
+    <script src="tasks.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+:root {
+    --purple: #7653a6;
+    --dark-purple: #513a73;
+    --lavender: #e8def7;
+    --light-lavender: #f7f3fc;
+    --white: #ffffff;
+    --text: #30263b;
+    --muted: #796f85;
+    --border: #e6dcef;
+    --danger: #c74b65;
+    --green: #36856b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light-lavender);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    background: var(--white);
+    padding: 18px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--dark-purple);
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 8px 11px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--lavender);
+    color: var(--dark-purple);
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 35px auto;
+}
+
+.page-heading {
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: var(--dark-purple);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin: 5px 0;
+}
+
+.page-heading p:last-child,
+.list-heading p {
+    color: var(--muted);
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.summary-card,
+.panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 22px;
+    box-shadow: 0 5px 18px rgba(81, 58, 115, 0.05);
+}
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.summary-card span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.summary-card strong {
+    color: var(--dark-purple);
+    font-size: 2rem;
+}
+
+.panel {
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: var(--dark-purple);
+    margin-top: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--lavender);
+    border-color: var(--purple);
+}
+
+.primary-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--dark-purple);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: var(--purple);
+}
+
+.message {
+    color: var(--green);
+    font-size: 0.9rem;
+}
+
+.list-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.list-heading p {
+    margin-bottom: 0;
+}
+
+#filter {
+    max-width: 180px;
+}
+
+.deadline-list {
+    display: grid;
+    gap: 13px;
+}
+
+.deadline-item {
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    background: #fdfbff;
+}
+
+.deadline-info {
+    min-width: 0;
+}
+
+.deadline-info h3 {
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+}
+
+.deadline-info p {
+    margin: 4px 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.deadline-item.completed h3 {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.badges {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-top: 9px;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: var(--lavender);
+    color: var(--dark-purple);
+}
+
+.priority-high {
+    background: #fbe2e8;
+    color: #a52d4b;
+}
+
+.priority-medium {
+    background: #fff0d5;
+    color: #875d12;
+}
+
+.priority-low {
+    background: #dff3e9;
+    color: #286a51;
+}
+
+.status-overdue {
+    color: var(--danger) !important;
+    font-weight: bold;
+}
+
+.status-completed {
+    color: var(--green) !important;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.actions button {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    padding: 8px 10px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+}
+
+.actions button:hover {
+    background: var(--lavender);
+}
+
+.actions .delete-btn {
+    color: var(--danger);
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 750px) {
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 94%;
+        margin: 22px auto;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .list-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    #filter {
+        max-width: none;
+    }
+
+    .deadline-item {
+        flex-direction: column;
+    }
+
+    .actions {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .actions button {
+        flex: 1;
+    }
+}

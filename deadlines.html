@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadlines | PurpleNotes</title>
+    <link rel="stylesheet" href="deadlines.css">
+    <script src="deadlines.js" defer></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="dashboard.html" class="brand">PurpleNotes</a>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="assignment.html">Assignments</a>
+            <a href="tasks.html">Tasks</a>
+            <a href="exams.html">Exams</a>
+            <a href="weekly.html">Weekly Schedule</a>
+            <a href="grades.html">Grades</a>
+            <a href="notes.html">Notes</a>
+            <a href="deadlines.html" class="active">Deadlines</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="page-heading">
+            <p class="eyebrow">STAY ON TRACK</p>
+            <h1>My Deadlines 📅</h1>
+            <p>Keep track of schoolwork and never miss a due date.</p>
+        </section>
+
+        <section class="summary">
+            <article class="summary-card">
+                <span>Total deadlines</span>
+                <strong id="totalCount">0</strong>
+            </article>
+
+            <article class="summary-card">
+                <span>Upcoming</span>
+                <strong id="upcomingCount">0</strong>
+            </article>
+
+            <article class="summary-card">
+                <span>Overdue</span>
+                <strong id="overdueCount">0</strong>
+            </article>
+
+            <article class="summary-card">
+                <span>Completed</span>
+                <strong id="completedCount">0</strong>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2>Add a deadline</h2>
+
+            <form id="deadlineForm">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="title">Assignment or activity</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="e.g. Research paper"
+                            required
+                            maxlength="100">
+                    </div>
+
+                    <div class="field">
+                        <label for="subject">Subject</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="e.g. Information Technology"
+                            required
+                            maxlength="80">
+                    </div>
+
+                    <div class="field">
+                        <label for="dueDate">Due date</label>
+                        <input type="date" id="dueDate" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="dueTime">Due time</label>
+                        <input type="time" id="dueTime" value="23:59" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    + Add Deadline
+                </button>
+
+                <p id="formMessage" class="message" role="status"></p>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="list-heading">
+                <div>
+                    <h2>Your deadlines</h2>
+                    <p>Review your school tasks and due dates.</p>
+                </div>
+
+                <select id="filter">
+                    <option value="All">All deadlines</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Overdue">Overdue</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <div id="deadlineList" class="deadline-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with 💜 by PurpleNotes</p>
+    </footer>
+
+</body>
+</html>
